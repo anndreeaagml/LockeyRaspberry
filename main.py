@@ -1,9 +1,9 @@
 import requests
 import RPi.GPIO as GPIO
 import time
-
+import re, uuid 
 data = {
-    "ID": "1alpha",
+    "ID": ':'.join(re.findall('..', '%012x' % uuid.getnode())),
     "IsLocked": True
 }
 
