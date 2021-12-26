@@ -7,15 +7,12 @@ data = {
     "IsLocked": True
 }
 
-#r=requests.post('https://lockeysuperserverdeluxe.azurewebsites.net/Sensor', data=data)
-#print(r)
 
 a=requests.get('https://lockeysuperserverdeluxe.azurewebsites.net/Sensor')
 print(a._content.decode("utf-8"))
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4,GPIO.IN)
 
-#initialise a previous input variable to 0 (Assume no pressure applied)
 prev_input = GPIO.input(4)
 if (prev_input==0): 
     new_data={"IsLocked":False}
